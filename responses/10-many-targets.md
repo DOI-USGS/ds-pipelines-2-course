@@ -1,7 +1,7 @@
 How to make decisions on how many targets to use and how targets are defined
 
 ### background 
-Isn't it satisfying to work through a fairly lengthy data workflow and then return to the project? For several years now, our group has been capturing the steps that go into creating results, figures, or tables appearing in data visualizations or research papers. Complex, interactive data visualizations also have [recipes for reproducibility](https://github.com/USGS-VIZLAB/water-use-15/blob/master/viz.yaml), such as 
+Isn't it satisfying to work through a fairly lengthy data workflow and then return to the project? For the past few years, we have been capturing the steps that go into creating results, figures, or tables appearing in data visualizations or research papers. There are [recipes for reproducibility](https://github.com/USGS-VIZLAB/water-use-15/blob/master/viz.yaml) there were used to create complex, interactive data visualizations, such as 
 [![this water use data viz](https://user-images.githubusercontent.com/2349007/82119731-85695880-9746-11ea-914c-77b3943c8d29.png)](https://owi.usgs.gov/vizlab/water-use-15 "water use data viz")
 
 ---
@@ -95,21 +95,22 @@ targets:
     plot: true
 ```
 
-It is reassuring to hop back into that project and see this when I run `scmake`:
-![multi_panel_constituents figure build](https://user-images.githubusercontent.com/2349007/82117243-85605d00-9734-11ea-9a11-d4155c72a23f.png)
-
 This remakefile recipe generates a multipanel map, which colors [HUC8 watersheds](http://dep.wv.gov/WWE/getinvolved/sos/Documents/Basins/HUCprimer.pdf) according to how many sites within the watershed have data for various water quality constituents:
 ![multi_panel_constituents](https://user-images.githubusercontent.com/2349007/82117369-18999280-9735-11ea-8365-e58742c5ff7e.png)
 
-The `figures/multi_panel_constituents.png` figure takes a while to plot, so it is a somewhat "expensive" target to iterate on when it comes to style, size, colors, and layout (it takes 3 minutes to plot for me). But the plotting expense is dwarfed by the amount of time it takes to build each water quality data "object", since `get_wqp_data` uses a web service that queries a large database and returns a result; the process of fetching the data can sometimes take over thirty minutes (`nitrogen_all` is a target that contains the locations of all of the sites that have nitrogen water quality data samples). Alternatively, the `map.config`* object above builds in a fraction of second, and contains some simple information that is used to fetch and process the proper boundaries with the `get_mutate_HUC8s` function, and includes some plotting details for the final map (such as plotting color divisions as specified by `countBins`):
+---
+
+The `figures/multi_panel_constituents.png` figure takes a while to plot, so it is a somewhat "expensive" target to iterate on when it comes to style, size, colors, and layout (it takes 3 minutes to plot for me). But the plotting expense is dwarfed by the amount of time it takes to build each water quality data "object", since `get_wqp_data` uses a web service that queries a large database and returns a result; the process of fetching the data can sometimes take over thirty minutes (`nitrogen_all` is a target that contains the locations of all of the sites that have nitrogen water quality data samples). 
+
+Alternatively, the `map.config`* object above builds in a fraction of second, and contains some simple information that is used to fetch and process the proper boundaries with the `get_mutate_HUC8s` function, and includes some plotting details for the final map (such as plotting color divisions as specified by `countBins`):
 
 ![map.config build](https://user-images.githubusercontent.com/2349007/82117596-a629b200-9736-11ea-9118-b4391d5d4d39.png)
 
 
-This example, although dates, represents a real example that causes us to think carefully about how many targets we use in a recipe, and how complex their underlying functions are. Decisions related to targets are often motivated by the intent of the pipeline. In the case above, our intent at the time was to capture the data and processing behind the plot in the paper in order to satisfy our desire for reproducibility. 
-___
+This example, although dated, represents a real example that causes us to think carefully about how many targets we use in a recipe and how complex their underlying functions are. Decisions related to targets are often motivated by the intent of the pipeline. In the case above, our intent at the time was to capture the data and processing behind the plot in the paper in order to satisfy our desire for reproducibility. 
+---
 
-*disclaimer, the code above was written at a time before we'd completely transitioned from naming variables with `.`
+*disclaimer, the code above was written at a time before we'd completely transitioned away from naming variables `like.this`
 
 
 :keyboard: Activity: Assign yourself to this issue to get started.
