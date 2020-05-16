@@ -19,7 +19,7 @@ steps:
         with: 10-many-targets.md
         store:
           many_targets_url: '{{ result.data.html_url }}'
-  - title: When to make a target vs making one big or chained function
+  - title: Strategies for defining targets in data pipelines
     description: >-
       Sometimes it is hard to figure out when something should be a tracked target vs an internal step of a longer-running function
     link: '{{ store.many_targets_url }}'
@@ -29,4 +29,40 @@ steps:
         with: 11-target-expense.md
         store:
           target_expense_url: '{{ result.data.html_url }}'
-
+  - title: Determining when to create a new target or merge existing targets
+    description: A hands-on activity designed to expose the learner to decisions with targets
+    link: '{{ store.target_expense_url }}'
+    event: issues.closed
+    actions:
+      - type: respond
+        with: 20-target-kinds.md
+        store:
+          target_kinds_url: '{{ result.data.html_url }}'
+  - title: Object vs file target
+    description: Overview of different types of targets and how to choose between files and R objects
+    link: '{{ store.target_kinds_url }}'
+    event: issues.assigned
+    actions:
+      - type: respond
+        with: 21-object-targets.md
+        store:
+          object_targets_url: '{{ result.data.html_url }}'
+  - title: Object targets
+    description: R objects in pipelines
+    link: '{{ store.object_targets_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 22-file-targets.md
+        store:
+          file_targets_url: '{{ result.data.html_url }}'          
+  - title: file targets
+    description: file targets in pipelines
+    link: '{{ store.file_targets_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 23-target-activity.md
+        store:
+          target_activity_url: '{{ result.data.html_url }}'        
+          

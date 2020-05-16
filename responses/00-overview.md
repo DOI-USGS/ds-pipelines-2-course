@@ -17,7 +17,10 @@ First, a recap of key concepts that came from [intro-to-pipelines](https://lab.g
 In this training, the focus will be on tricks and tips for pipelines. You'll learn new things here that will help you take what you picked up in the first class, and put it into practice. Let's get started!
 
 
-:keyboard: Activity: Close this issue to get started.
+:keyboard: Activity: Add collaborators and close this issue to get started.
+
+As with pipelines I, please invite a few collaborators to your repository so they can easily comment and reviewers in the future. In the :gear: Settings widget at the top of [your repo]({{ repoUrl }}), select "Manage access". Go ahead and invite aappling-usgs and jread-usgs. It should look something like this: 
+![add some friends](https://user-images.githubusercontent.com/2349007/81471981-c0094900-91ba-11ea-93b0-0ffd31ec4ea9.png)
 
 :bulb: Tip: Throughout this course, I, the Learning Lab Bot, will reply and direct you to the next step each time you complete an activity. But sometimes it takes me 5-30 seconds :hourglass_flowing_sand: to give you a reply, and occasionally you'll need to refresh the current GitHub page to see my reply. Please be patient, and let my humans know (`jread-usgs` or `aappling-usgs`) if I seem to have become completely stuck.
 
