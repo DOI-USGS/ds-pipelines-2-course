@@ -54,7 +54,7 @@ steps:
         with: zz-goto-next-issue.md
       - type: createIssue
         title: Learn the differences between different types of targets
-        with: 20-target-kinds.md
+        body: 20-target-kinds.md
         store:
           target_kinds_url: '{{ result.data.html_url }}'
       - type: closeIssue
