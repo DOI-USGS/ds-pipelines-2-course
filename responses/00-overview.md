@@ -1,11 +1,28 @@
-In our division we almost always work on code and data analyses in teams.
-As a result, our projects need to support contributions of both code and data from multiple team members.
-Git is great for sharing code, but it's not great at sharing data. The first part of this course is therefore
-all about our current solution to data sharing within analysis pipelines.
+**Welcome to the second installment of introduction to data pipelines** at USGS, @{{ user.username }}!! :sparkles:
 
-In the second part of this course you'll learn about scaling: how to download many datasets,
-run many models, or make many plots. Whereas a `for` loop would work for many quick tasks,
-here our focus is on tools for managing sets of larger tasks that each take a long time and/or
-are subject to occasional failure.
+We're assuming you were able to navigate through the [intro-to-pipelines](https://lab.github.com/USGS-R/intro-to-pipelines) course and you learned a few things about organizing your code for readability, re-use, and collaboration. You were also introduced to two key things through the `remake.yml`: a way to program connections between functions and files, and the concept of a dependency manager that skips parts of the workflow that don't need to be re-run. 
 
-We'll also include some tips and tricks for pipelines that are _both_ collaborative and multi-task.
+---
+### Recap of pipelines I
+
+First, a recap of key concepts that came from [intro-to-pipelines](https://lab.github.com/USGS-R/intro-to-pipelines) :point_down:
+- Data science work should be organized thoughtfully. As Jenny Bryan noted, "File organization and naming are powerful weapons against chaos".
+- Capture all of the critical phases of project work in directories and function naming, including how you "get" the data (in practice, we often use `fetch` for this phase).
+- Turn your scripts into a collection of functions, and modify your thinking you use a collection of deliberate outputs ("targets").
+- "skip the work you don't need" by taking advantage of a dependency manager. There were some videos that covered a bit of `make` and `drake`, and we asked you to experiment with `scipiper`.
+- Investing in _efficient_ reproducibility helps projects scale up with confidence. This last concept was not addressed directly but we hope that the small exercise of seeing rebuilds in action got you thinking about projects that might have much more lengthly steps (e.g., several downloads or geo-processing tasks that take hours instead of seconds).
+
+### What's ahead in pipelines II
+
+In this training, the focus will be on tricks and tips for pipelines. You'll learn new things here that will help you take what you picked up in the first class, and put it into practice. Let's get started!
+
+
+:keyboard: Activity: Add collaborators and close this issue to get started.
+
+As with pipelines I, please invite a few collaborators to your repository so they can easily comment and reviewers in the future. In the :gear: Settings widget at the top of [your repo]({{ repoUrl }}), select "Manage access". Go ahead and invite aappling-usgs and jread-usgs. It should look something like this: 
+![add some friends](https://user-images.githubusercontent.com/2349007/81471981-c0094900-91ba-11ea-93b0-0ffd31ec4ea9.png)
+
+:bulb: Tip: Throughout this course, I, the Learning Lab Bot, will reply and direct you to the next step each time you complete an activity. But sometimes it takes me 5-30 seconds :hourglass_flowing_sand: to give you a reply, and occasionally you'll need to refresh the current GitHub page to see my reply. Please be patient, and let my humans know (`jread-usgs` or `aappling-usgs`) if I seem to have become completely stuck.
+
+<hr>
+<h3 align="center">I'll sit patiently until you've closed the issue.</h3>
