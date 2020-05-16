@@ -1,5 +1,5 @@
 
-:keyboard: Activity: Make modifications to the working, but not ideal, pipeline that exists within your course repository
+:keyboard: Activity: Make modifications to the working, but less than ideal, pipeline that exists within your course repository
 
 Within the course repo you should see only a `remake.yml` and directories with code or placeholder files for each phase. You should be able to run `scmake` and build the pipeline, although it may take a couple of tries, since some parts of this new workflow are brittle. Some hints to get you started: one of these targets is too big, and you should consider splitting it. Several of these targets are too small and it might make sense to combine them. 
 

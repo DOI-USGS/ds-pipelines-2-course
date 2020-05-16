@@ -1,4 +1,4 @@
-In general, if building part of a pipeline is "expensive" (i.e., takes more than a trivial amount of time for a computer to execute), it should be a target. In the example above :point_up:, expensive sections included fetching data and plotting. 
+In general, if building part of a pipeline is "expensive" (i.e., takes more than a trivial amount of time for a computer to execute), it should be a separate target. In the example above :point_up:, expensive sections included fetching data and plotting. 
 
 Additional reasons to create a target include:
 - If some element in the pipeline may fail (such as downloading data from the internet), isolating this brittle part of the project as a target with a corresponding function makes it faster to get past. This is because your target focuses on accomplishing _only_ the brittle step, instead of, for example, also attempting to process and plot downloaded data all within the same function.

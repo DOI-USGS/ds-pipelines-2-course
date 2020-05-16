@@ -45,6 +45,8 @@ steps:
         body: 12-target-refactor.md
         store:
           target_refactor_url: '{{ result.data.html_url }}'
+          target_refactor_id: '{{ result.data.number }}'
+
   - title: Learn how to refactor an existing pipeline to use more effective targets
     description: A hands-on activity designed to expose the learner to decisions with targets
     link: '{{ store.target_refactor_url }}'
@@ -57,10 +59,11 @@ steps:
         body: 20-target-kinds.md
         store:
           target_kinds_url: '{{ result.data.html_url }}'
+          target_kinds_id: '{{ result.data.number }}'
       - type: closeIssue
-        issue: '{{ store.many_targets_id }}'
-  - title: Object vs file target
-    description: Overview of different types of targets and how to choose between files and R objects
+        issue: '{{ store.target_refactor_id }}'
+  - title: Object vs file targets
+    description: Overview of different types of targets
     link: '{{ store.target_kinds_url }}'
     event: issues.assigned
     actions:
@@ -68,8 +71,8 @@ steps:
         with: 21-object-targets.md
         store:
           object_targets_url: '{{ result.data.html_url }}'
-  - title: Object targets
-    description: R objects in pipelines
+  - title: When to use object targets vs file targets
+    description: How to choose between files and R objects for pipeline targets
     link: '{{ store.object_targets_url }}'
     event: issue_comment.created
     actions:
@@ -80,10 +83,16 @@ steps:
   - title: file targets
     description: file targets in pipelines
     link: '{{ store.file_targets_url }}'
-    event: issue_comment.created
+    event: issues.closed
     actions:
       - type: respond
-        with: 23-target-activity.md
+        with: zz-goto-next-issue.md
+      - type: createIssue
+        title: Exchange object and file targets in your pipelines
+        body: 23-target-activity.md
         store:
-          target_activity_url: '{{ result.data.html_url }}'        
+          target_switch_url: '{{ result.data.html_url }}'
+          target_switch_id: '{{ result.data.number }}'
+
+     
           
