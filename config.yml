@@ -5,17 +5,28 @@ template:
   repo: ds-pipelines-2
 before:
   - type: createIssue
-    title: Recognize the unique demands of big collaborative pipelines
+    title: Overview of data science pipelines II
     body: 00-overview.md
     store:
       overview_issue_url: '{{ result.data.html_url }}'
 steps:
-  - title: Get the big picture
-    description: Recognize the unique demands of big collaborative pipelines
+  - title: Overview of data science pipelines II
+    description: A refresher from pipelines I, and a hint of what is to come
     link: '{{ store.overview_issue_url }}'
+    event: issues.closed
+    actions:
+      - type: respond
+        with: 10-many-targets.md
+        store:
+          many_targets_url: '{{ result.data.html_url }}'
+  - title: When to make a target vs making one big or chained function
+    description: >-
+      Sometimes it is hard to figure out when something should be a tracked target vs an internal step of a longer-running function
+    link: '{{ store.many_targets_url }}'
     event: issues.assigned
     actions:
       - type: respond
-        with: 01-access-caches.md
+        with: 11-target-expense.md
         store:
-          install_activity_url: '{{ result.data.html_url }}'
+          target_expense_url: '{{ result.data.html_url }}'
+
