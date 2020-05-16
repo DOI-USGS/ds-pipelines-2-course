@@ -1,7 +1,12 @@
-When to make a target vs making one big or chained function 
+How to make decisions on how many targets to use and how targets are defined
 
 ### background 
-Isn't it satisfying to work through a fairly lengthy data workflow and then return to the project? For several years now, our group has been capturing the steps that go into creating results, figures, or tables appearing in data visualizations or research papers. Here is an example that was used to generate *Figure 1* from [Water quality data for national‐scale aquatic research: The Water Quality Portal](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016WR019993) (published in 2017):
+Isn't it satisfying to work through a fairly lengthy data workflow and then return to the project? For several years now, our group has been capturing the steps that go into creating results, figures, or tables appearing in data visualizations or research papers. Complex, interactive data visualizations also have [recipes for reproducibility](https://github.com/USGS-VIZLAB/water-use-15/blob/master/viz.yaml), such as 
+[![this water use data viz](https://user-images.githubusercontent.com/2349007/82119731-85695880-9746-11ea-914c-77b3943c8d29.png)](https://owi.usgs.gov/vizlab/water-use-15 "water use data viz")
+
+---
+
+Here is a much simpler example that was used to generate **Figure 1** from [Water quality data for national‐scale aquatic research: The Water Quality Portal](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016WR019993) (published in 2017):
 
 ```yaml
 

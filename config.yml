@@ -16,9 +16,13 @@ steps:
     event: issues.closed
     actions:
       - type: respond
-        with: 10-many-targets.md
+        with: zz-goto-next-issue.md
+      - type: createIssue
+        title: Strategies for defining targets in data pipelines
+        body: 10-many-targets.md
         store:
           many_targets_url: '{{ result.data.html_url }}'
+          many_targets_id: '{{ result.data.number }}'
   - title: Strategies for defining targets in data pipelines
     description: >-
       Sometimes it is hard to figure out when something should be a tracked target vs an internal step of a longer-running function
@@ -30,14 +34,31 @@ steps:
         store:
           target_expense_url: '{{ result.data.html_url }}'
   - title: Determining when to create a new target or merge existing targets
-    description: A hands-on activity designed to expose the learner to decisions with targets
+    description: Existing project examples that use pipelines; strategies for defining targets based on computational expense and re-use
     link: '{{ store.target_expense_url }}'
     event: issues.closed
     actions:
       - type: respond
-        with: 20-target-kinds.md
+        with: zz-goto-next-issue.md
+      - type: createIssue
+        title: Refactor the existing pipeline to use more effective targets
+        body: 12-target-refactor.md
+        store:
+          target_refactor_url: '{{ result.data.html_url }}'
+  - title: Learn how to refactor an existing pipeline to use more effective targets
+    description: A hands-on activity designed to expose the learner to decisions with targets
+    link: '{{ store.target_refactor_url }}'
+    event: pull_request.closed
+    actions:
+      - type: respond
+        with: zz-goto-next-issue.md
+      - type: createIssue
+        title: Learn the differences between different types of targets
+        body: 20-target-kinds.md
         store:
           target_kinds_url: '{{ result.data.html_url }}'
+      - type: closeIssue
+        issue: '{{ store.many_targets_id }}'
   - title: Object vs file target
     description: Overview of different types of targets and how to choose between files and R objects
     link: '{{ store.target_kinds_url }}'
