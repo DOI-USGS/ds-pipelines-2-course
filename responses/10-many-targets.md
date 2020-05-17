@@ -108,6 +108,7 @@ Alternatively, the `map.config`* object above builds in a fraction of second, an
 
 
 This example, although dated, represents a real example that causes us to think carefully about how many targets we use in a recipe and how complex their underlying functions are. Decisions related to targets are often motivated by the intent of the pipeline. In the case above, our intent at the time was to capture the data and processing behind the plot in the paper in order to satisfy our desire for reproducibility. 
+
 ---
 
 *disclaimer, the code above was written at a time before we'd completely transitioned away from naming variables `like.this`

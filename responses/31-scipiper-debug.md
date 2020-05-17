@@ -1,0 +1,1 @@
+how to use `browser()` in pipelines
