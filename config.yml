@@ -119,6 +119,7 @@ steps:
         store:
           debug_url: '{{ result.data.html_url }}' 
   - title: Debugging in a scipiper pipeline
+    description: How to inspect parts of the pipeline and variables within functions
     link: '{{ store.debug_url }}'
     event: issue_comment.created
     actions:
@@ -127,6 +128,7 @@ steps:
         store:
           cyclical_url: '{{ result.data.html_url }}'  
   - title: What are cyclical dependencies and how to avoid them?
+    description: Thinking in a directed network of dependencies is probably a new concept. It hurts the brain. How to avoid breaking the network with cyclical dependencies. 
     link: '{{ store.cyclical_url }}'
     event: issue_comment.created
     actions:
@@ -135,6 +137,7 @@ steps:
         store:
           undoc_file_url: '{{ result.data.html_url }}' 
   - title: Creating side-effect targets or undocumented outputs
+    description: If functions create outputs that aren't connected to the pipeline, they can get lost and cause unexpected issues. How and why to avoid creating side-effect targets. 
     link: '{{ store.undoc_file_url }}'
     event: issue_comment.created
     actions:
@@ -143,6 +146,7 @@ steps:
         store:
           dir_targets_url: '{{ result.data.html_url }}'
   - title: How (not to) depend on a directory for changes
+    description: It is handy to "depend" on the contents of an entire directory, so that when anything changes, a target can be rebuilt. In practice, doing so is harder than expected. 
     link: '{{ store.dir_targets_url }}'
     event: issue_comment.created
     actions:
@@ -151,6 +155,8 @@ steps:
         store:
           inhibit_url: '{{ result.data.html_url }}'  
   - title: Inhibiting conversion of R objects with I()
+    description: >- 
+      We've been limited to using only target objects and files as inputs into pipeline functions. I want more! You'll get more here. 
     link: '{{ store.inhibit_url }}'
     event: issue_comment.created
     actions:
