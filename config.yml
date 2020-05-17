@@ -109,4 +109,56 @@ steps:
           scipiper_gotchyas_id: '{{ result.data.number }}'
       - type: closeIssue
         issue: '{{ store.target_switch_id }}'     
-          
+  - title: Overview of gotchas
+    description: How to get past the gotchas without getting gotten again
+    link: '{{ store.scipiper_gotchyas_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 31-scipiper-debug.md
+        store:
+          debug_url: '{{ result.data.html_url }}' 
+  - title: Debugging in a scipiper pipeline
+    link: '{{ store.debug_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 32-cyclical-depends.md
+        store:
+          cyclical_url: '{{ result.data.html_url }}'  
+  - title: What are cyclical dependencies and how to avoid them?
+    link: '{{ store.cyclical_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 33-undoc-file.md
+        store:
+          undoc_file_url: '{{ result.data.html_url }}' 
+  - title: Creating side-effect targets or undocumented outputs
+    link: '{{ store.undoc_file_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 34-dir-targets.md
+        store:
+          dir_targets_url: '{{ result.data.html_url }}'
+  - title: How (not to) depend on a directory for changes
+    link: '{{ store.dir_targets_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 35-inhibit-objects.md
+        store:
+          inhibit_url: '{{ result.data.html_url }}'  
+  - title: Inhibiting conversion of R objects with I()
+    link: '{{ store.inhibit_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: zz-goto-next-issue.md
+      - type: closeIssue
+        issue: '{{ store.scipiper_gotchyas_id }}'
+      - type: createIssue
+        title: >-
+          What's next
+        body: 90-whats-next.md

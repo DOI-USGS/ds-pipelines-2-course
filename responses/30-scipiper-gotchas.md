@@ -1,14 +1,13 @@
-Overview of gotchas
+In the remaining section, we're going to go one by one through a series of tips that will help you avoid common pitfalls (or gotchas!) in pipelines. A quick list of what's to come is as follows:
 
 
-Creating a file whose data type isn’t known to scipiper (.feather) [file_extensions](https://github.com/richfitz/remake/blob/e29028b548950a3132ea2d045b7f67344ce22a6b/tests/testthat/remake_extension.yml)
+- How to debug in a pipeline
+- What is a cyclical dependency and how do I avoid it?
+- Undocumented file output from function 
+- Using a directory as a dependency 
+- Can I _really_ only use filenames or object targets as arguments in pipeline functions? Understanding using of the `I()` helper
 
-Undocumented file output from function 
+:keyboard: add a comment to this issue and the bot will respond with the next topic
 
-Cyclical dependency 
-
-Using a directory as a dependency 
-
-The I() on a filename  
-
-How to debug (can’t set a breakpoint) 
+<hr>
+<h3 align="center">I'll sit patiently until you comment</h3>
