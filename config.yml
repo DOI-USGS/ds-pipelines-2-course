@@ -96,6 +96,7 @@ steps:
 
 # -- section 30 --- 
   - title: Exchange object and file targets in your pipelines
+    description: An assignment where you'll be asked to swap objects and files as targets
     link: '{{ store.target_switch_url }}'
     event: pull_request.closed
     actions:
