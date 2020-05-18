@@ -62,7 +62,7 @@ steps:
           target_kinds_id: '{{ result.data.number }}'
       - type: closeIssue
         issue: '{{ store.target_refactor_id }}'
-  - title: Object vs file targets
+  - title: Object and file targets in pipelines
     description: Overview of different types of targets
     link: '{{ store.target_kinds_url }}'
     event: issues.assigned
@@ -71,8 +71,8 @@ steps:
         with: 21-object-targets.md
         store:
           object_targets_url: '{{ result.data.html_url }}'
-  - title: When to use object targets vs file targets
-    description: How to choose between files and R objects for pipeline targets
+  - title: Pros and cons to using object targets
+    description: When to choose R objects for pipeline targets
     link: '{{ store.object_targets_url }}'
     event: issue_comment.created
     actions:
@@ -80,8 +80,8 @@ steps:
         with: 22-file-targets.md
         store:
           file_targets_url: '{{ result.data.html_url }}'          
-  - title: file targets
-    description: file targets in pipelines
+  - title: Pros and cons to using file targets
+    description: When to choose files for pipeline targets
     link: '{{ store.file_targets_url }}'
     event: issues.closed
     actions:
