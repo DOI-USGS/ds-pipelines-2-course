@@ -1,7 +1,7 @@
 
 :keyboard: Activity: Make modifications to the working, but less than ideal, pipeline that exists within your course repository
 
-Within the course repo you should see only a `remake.yml` and directories with code or placeholder files for each phase. You should be able to run `scmake` and build the pipeline, although it may take a couple of tries, since some parts of this new workflow are brittle. Some hints to get you started: one of these targets is too big, and you should consider splitting it. Several of these targets are too small and it might make sense to combine them. 
+Within the course repo you should see only a `remake.yml` and directories with code or placeholder files for each phase. You should be able to run `scmake` and build the pipeline, although it may take a couple of tries, since some parts of this new workflow are brittle. Some hints to get you started: the `site_data` target is too big, and you should consider splitting it into a target for each site, perhaps using the `download_nwis_site_data` function directly to write a file. Several of the `site_data_` targets are too small and it might make sense to combine them. 
 
 When you are happy with your newer, better workflow, create a pull request with your changes and assign Jordan or Alison as reviewers. Add a comment to your own PR with thoughts on how you approached the task, as well as key decisions you made. See details below for some reminders of how to get started working with code and files that exist within the course repsository:
 
