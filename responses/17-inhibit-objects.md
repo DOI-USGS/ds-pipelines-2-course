@@ -1,4 +1,4 @@
-#### What to do when you want to specify a non-build-object input to a function? 
+### What to do when you want to specify a non-build-object input to a function? 
 
 Wow, we've gotten this far and haven't written a function that accepts anything other than an object target or a file target. I feel so constrained!
 

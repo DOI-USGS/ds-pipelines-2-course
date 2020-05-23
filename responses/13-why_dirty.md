@@ -1,10 +1,10 @@
-#### Using which_dirty() and why_dirty() to explore status of pipeline targets
+### Using which_dirty() and why_dirty() to explore status of pipeline targets
 
 In the image contained within the previous comment, you may have noticed the faded fill color of the target shapes. That styling signifies that the targets are out of date ("dirty") or haven't been created yet. 
 
 We've put some fragile elements in the pipeline that will be addressed later, but if you were able to muscle through the failures with multiple calls to `scmake()`, you likely were able to build the figure near the end of the dependency diagram. For this example, we'll stop short of building the `"3_visualize/out/figure_1.png"` target by calling `scmake('site_data_styled')` instead to illustrate the concept of a dirty target. 
 
-##### Which targets are incomplete/dirty?
+#### Which targets are incomplete/dirty?
 
 The updated `remake::diagram()` output looks like this:
 ![image](https://user-images.githubusercontent.com/2349007/82731263-29b14900-9ccb-11ea-81ad-a35fedd09be2.png)
@@ -21,10 +21,10 @@ This output tells us the same thing as the visual, namely that these three targe
 
 ---
 
-##### Why are these targets dirty?
+#### Why are these targets dirty?
 
 Calling `why_dirty()` on a single target tells us a number of important things
-```r
+```
 why_dirty("3_visualize/out/figure_1.png")
 The target '3_visualize/out/figure_1.png' does not exist
 # A tibble: 4 x 8
@@ -45,7 +45,7 @@ A build of the figure with `scipiper::scmake('3_visualize/out/figure_1.png')` wi
 ---
 
 The target will be out of date if there are any modifications to the upstream dependencies (follow the arrows in the diagram "upstream") or to the function `plot_nwis_timeseries()`. Additionally, a simple update to the value of one of the `"fixed"` arguments will cause the `"3_visualize/out/figure_1.png"` target to be "dirty". Here the `height` argument was change from 7 to 8) 
-```r
+```
 why_dirty("3_visualize/out/figure_1.png")
 Since the last build of the target '3_visualize/out/figure_1.png':
   * the fixed arguments (character, logical, or numeric) to the target's command have changed

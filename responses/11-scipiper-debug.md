@@ -1,4 +1,4 @@
-#### How to inspect parts of the pipeline and variables within functions
+### How to inspect parts of the pipeline and variables within functions
 
 If you've written your own functions or scripts before, you may have run into the red breakpoint dot :red_circle: on the left side oyour script window:
 

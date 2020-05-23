@@ -1,4 +1,6 @@
-#### The `target_name` special variable. Simplifying `target:command` relationships and reducing duplication
+### The `target_name` special variable. 
+
+#### Simplifying `target:command` relationships and reducing duplication
 
 In your repo, there is a remake files that specifies relationships between targets, commands, and other targets. 
 
