@@ -86,7 +86,8 @@ steps:
     description: >- 
       Simplifying `target:command` relationships and reducing duplication
     link: '{{ store.inhibit_url }}'
-    event: issue_comment.created          
+    event: issue_comment.created
+    actions:
       - type: respond
         with: zz-goto-next-issue.md
       - type: closeIssue
