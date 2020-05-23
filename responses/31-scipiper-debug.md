@@ -8,7 +8,9 @@ Breakpoints allow you to run a function (or script) up until the line of the bre
 
 In `scipiper`, you can't set a breakpoint in the "normal" way, which would be clicking on the line number after you sourced the script. Instead, you need to use the other method for debugging, which is actually adding the function call `browser()` to the line at which you'd like the function call to stop. 
 
-So, if you wanted to look at what `download_files` where created within the `download_nwis_data` function, you could set a breakpoint by adding `browser()`:
+You have a working, albeit brittle, pipeline in your course repository. You can try it out with `scipiper::scmake()`. This pipeline has a number of things you'll work to fix later, but for now, it is a useful reference. The pipeline contains several functions which are defined in `.R` files. 
+
+So, if you wanted to look at what `download_files` where created within the `download_nwis_data` function, you could set a breakpoint by adding `browser()` to the 1_fetch/src/get_nwis_data.R file:
 
 ![browser()](https://user-images.githubusercontent.com/2349007/82158816-bed9bb00-984f-11ea-8892-b2aeb5e4818d.png)
 
@@ -16,7 +18,7 @@ Then, running `scmake()` will land you right in the middle of line 8.
 
 ---
 
-:keyboard: comment on where you might have used `browser()` in the previous assignment to reconstruct targets. 
+:keyboard: comment on where you might find `browser()` handy in future pipelines. 
 
 <hr>
 <h3 align="center">I'll sit patiently until you comment</h3>
