@@ -62,7 +62,7 @@ The "hash" of these three fixed input arguments _was_ "96653adafc4622c2088c81ea9
 
 ---
 
-:keyboard: using `which_dirty()` and `why_dirty()` can reveal unexpected connections between the target and the various dependencies. Comment on some of the different information you get from `why_dirty()` vs the visual produced with `remake::diagram()`.
+:keyboard: using `which_dirty()` and `why_dirty()` can reveal unexpected connections between the target and the various dependencies. Comment on some of the different information you'd get from `why_dirty()` that wouldn't be available in the visual produced with `remake::diagram()`.
 
 <hr>
 <h3 align="center">I'll sit patiently until you comment</h3>
