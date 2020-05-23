@@ -68,7 +68,7 @@ With this update, the build of `"1_fetch/out/nwis_01427207_data.csv"` would no l
 
 ---
 
-:keyboard: comment on what you learned from exploring `remake::diagram()`.
+:keyboard: comment on what you learned from exploring `remake::diagram()`
 
 <hr>
 <h3 align="center">I'll sit patiently until you comment</h3>
