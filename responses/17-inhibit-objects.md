@@ -4,7 +4,7 @@ Wow, we've gotten this far and haven't written a function that accepts anything 
 
 In reality, R functions have all kinds of other arguments, from logicals (TRUE/FALSE), to characters that specify which configurations to use. 
 
-The example in your working pipeline creates a figure, called `3_visualize/out/figure_1.png`. Unless you've made a lot of modifications to the `plot_nwis_timeseries()` function, it has a few arguments that have default values, but aren't being used in the pipeline recipe, namely `width = 12`, `height = 7`, and `units = 'in'`. Nice, you can control your output plot size!
+The example in your working pipeline creates a figure, called `3_visualize/out/figure_1.png`. Unless you've made a lot of modifications to the `plot_nwis_timeseries()` function, it has a few arguments that have default values, namely `width = 12`, `height = 7`, and `units = 'in'`. Nice, you can control your output plot size here!
 
 But adding those to the remake file like so
 ```yaml
@@ -19,9 +19,9 @@ scmake()
   Implicitly created targets must all be files:
  - in: (in 3_visualize/out/figure_1.png) -- did you mean: site_data, 1_fetch/out/site_info.csv, 
 ```
-Since `'in'` is not an object target with a recipe in the pipeline, `remake` is trying to find the file corresponding to "in", since it _must_ be a file if it isn't an object.
+Since `'in'` is not an object target with a recipe in the pipeline, `remake` is trying to find the file corresponding to `"in"`, since it _must_ be a file if it isn't a number or an object.
 
-We know "in" is not a file, it is instead a simple argument we want to expose in the recipe, so we can make modification. To do this, wrapping the argument in the `I()` function tells remake to "treat this argument 'as is'", meaning don't try to infer anything fancy, just pass it along to the function. 
+We know `"in"` is not a file, it is instead a simple argument we want to expose in the recipe, so we can make modification. To do this, wrapping the argument in the `I()` function tells remake to "treat this argument 'as is'", meaning don't try to infer anything fancy, just pass it along to the function. 
 
 ```yaml
 
