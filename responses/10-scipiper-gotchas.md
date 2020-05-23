@@ -7,7 +7,7 @@ In this section, we're going to go one by one through a series of tips that will
 - :arrows_clockwise: What is a cyclical dependency and how do I avoid it?
 - :warning: Undocumented file output from a function 
 - :open_file_folder: Using a directory as a dependency 
-- :clipboard: Can I _really_ only use filenames or object targets as arguments in pipeline functions? Understanding using of the `I()` helper
+- :clipboard: Can I _really_ only use filenames or object targets as arguments in pipeline functions? Understanding the `I()` helper
 - :unlock: The `target_name` special variable. Simplifying `target`:left_right_arrow:`command` relationships and reducing duplication
 
 
