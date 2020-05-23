@@ -1,4 +1,4 @@
-#### What are cyclical dependencies and how to avoid them?
+### What are cyclical dependencies and how to avoid them?
 
 using `remake::diagram()` shows the dependency diagram of the pipeline. Look at previous comments to remind yourself of these visuals. 
 
