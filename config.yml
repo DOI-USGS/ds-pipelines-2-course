@@ -19,7 +19,7 @@ steps:
         with: zz-goto-next-issue.md
       - type: createIssue
         title: How to get past the gotchas without getting gotten again
-        body: 30-scipiper-gotchas.md
+        body: 10-scipiper-gotchas.md
         store:
           scipiper_gotchyas_url: '{{ result.data.html_url }}'
           scipiper_gotchyas_id: '{{ result.data.number }}'
@@ -33,7 +33,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 31-scipiper-debug.md
+        with: 11-scipiper-debug.md
         store:
           debug_url: '{{ result.data.html_url }}' 
   - title: Debugging in a scipiper pipeline
@@ -42,16 +42,34 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 32-cyclical-depends.md
+        with: 12-visualize-pipeline.md
         store:
-          cyclical_url: '{{ result.data.html_url }}'  
+          visualize_url: '{{ result.data.html_url }}'    
+  - title: Visualizing and understanding the status of dependencies in a pipeline
+    description: How to inspect, view, and understand the state of pipeline targets with `diagram`
+    link: '{{ store.visualize_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 13-why_dirty.md
+        store:
+          why_dirty_url: '{{ result.data.html_url }}'  
+  - title: Using which_dirty() and why_dirty() for target status of pipeline targets
+    description: How to inspect, view, and understand the state of pipeline targets with `which_dirty` and `why_dirty`
+    link: '{{ store.why_dirty_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 14-cyclical-depends.md
+        store:
+          debug_url: '{{ result.data.html_url }}'           
   - title: What are cyclical dependencies and how to avoid them?
     description: Thinking in a directed network of dependencies is probably a new concept. It hurts the brain. How to avoid breaking the network with cyclical dependencies. 
     link: '{{ store.cyclical_url }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 33-undoc-file.md
+        with: 15-undoc-file.md
         store:
           undoc_file_url: '{{ result.data.html_url }}' 
   - title: Creating side-effect targets or undocumented outputs
@@ -60,7 +78,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 34-dir-targets.md
+        with: 16-dir-targets.md
         store:
           dir_targets_url: '{{ result.data.html_url }}'
   - title: How (not to) depend on a directory for changes
@@ -69,7 +87,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 35-inhibit-objects.md
+        with: 17-inhibit-objects.md
         store:
           inhibit_url: '{{ result.data.html_url }}'  
   - title: Inhibiting conversion of R objects with I()
@@ -79,7 +97,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 36-target_name.md
+        with: 18-target_name.md
         store:
           target_name_url: '{{ result.data.html_url }}'  
   - title: The target_name special variable
@@ -94,12 +112,10 @@ steps:
         issue: '{{ store.scipiper_gotchyas_id }}'
       - type: createIssue
         title: Strategies for defining targets in data pipelines
-        body: 10-many-targets.md
+        body: 20-many-targets.md
         store:
           many_targets_url: '{{ result.data.html_url }}'
           many_targets_id: '{{ result.data.number }}'
-
-
   - title: Strategies for defining targets in data pipelines
     description: >-
       Sometimes it is hard to figure out when something should be a tracked target vs an internal step of a longer-running function
@@ -107,7 +123,7 @@ steps:
     event: issues.assigned
     actions:
       - type: respond
-        with: 11-target-expense.md
+        with: 21-target-expense.md
         store:
           target_expense_url: '{{ result.data.html_url }}'
   - title: Determining when to create a new target or merge existing targets
@@ -119,7 +135,7 @@ steps:
         with: zz-goto-next-issue.md
       - type: createIssue
         title: Refactor the existing pipeline to use more effective targets
-        body: 12-target-refactor.md
+        body: 22-target-refactor.md
         store:
           target_refactor_url: '{{ result.data.html_url }}'
           target_refactor_id: '{{ result.data.number }}'
@@ -133,7 +149,7 @@ steps:
         with: zz-goto-next-issue.md
       - type: createIssue
         title: Learn the differences between different types of targets
-        body: 20-target-kinds.md
+        body: 30-target-kinds.md
         store:
           target_kinds_url: '{{ result.data.html_url }}'
           target_kinds_id: '{{ result.data.number }}'
@@ -145,7 +161,7 @@ steps:
     event: issues.assigned
     actions:
       - type: respond
-        with: 21-object-targets.md
+        with: 31-object-targets.md
         store:
           object_targets_url: '{{ result.data.html_url }}'
   - title: Pros and cons to using object targets
@@ -154,7 +170,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 22-file-targets.md
+        with: 32-file-targets.md
         store:
           file_targets_url: '{{ result.data.html_url }}'          
   - title: Pros and cons to using file targets
@@ -166,7 +182,7 @@ steps:
         with: zz-goto-next-issue.md
       - type: createIssue
         title: Exchange object and file targets in your pipelines
-        body: 23-target-activity.md
+        body: 33-target-activity.md
         store:
           target_switch_url: '{{ result.data.html_url }}'
           target_switch_id: '{{ result.data.number }}'
