@@ -103,7 +103,7 @@ steps:
   - title: The target_name special variable
     description: >- 
       Simplifying `target:command` relationships and reducing duplication
-    link: '{{ store.inhibit_url }}'
+    link: '{{ store.target_name_url }}'
     event: issue_comment.created
     actions:
       - type: respond
