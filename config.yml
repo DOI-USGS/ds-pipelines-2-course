@@ -42,9 +42,27 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
+        with: 31b-visualize-pipeline.md
+        store:
+          visualize_url: '{{ result.data.html_url }}'    
+  - title: Visualizing and understanding the status of dependencies in a pipeline
+    description: How to inspect, view, and understand the state of pipeline targets with `diagram`
+    link: '{{ store.visualize_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 31c-why_dirty.md
+        store:
+          why_dirty_url: '{{ result.data.html_url }}'  
+  - title: Using which_dirty() and why_dirty() for target status of pipeline targets
+    description: How to inspect, view, and understand the state of pipeline targets with `which_dirty` and `why_dirty`
+    link: '{{ store.why_dirty_url }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
         with: 32-cyclical-depends.md
         store:
-          cyclical_url: '{{ result.data.html_url }}'  
+          debug_url: '{{ result.data.html_url }}'           
   - title: What are cyclical dependencies and how to avoid them?
     description: Thinking in a directed network of dependencies is probably a new concept. It hurts the brain. How to avoid breaking the network with cyclical dependencies. 
     link: '{{ store.cyclical_url }}'
