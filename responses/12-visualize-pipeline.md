@@ -1,4 +1,4 @@
-#### Visualizing and understanding the status of dependencies in a pipeline
+### Visualizing and understanding the status of dependencies in a pipeline
 
 Seeing the structure of a pipeline as a visual is powerful. Viewing connections between targets and the direction data is flowing in can help you better understand the role of pipelines in data science work. Once you are more familiar with pipelines, using the same visuals can help you diagnose problems. 
 
@@ -35,6 +35,10 @@ targets:
 ```
 
 Two file targets (`"1_fetch/out/nwis_01427207_data.csv"` and `"1_fetch/out/nwis_01435000_data.csv"`) were added to this remakefile, but there were no changes to the functions, since `download_nwis_site_data()` already exists and is used to create a single file that contains water monitoring information for a single site. 
+
+---
+
+#### remake::diagram()
 
 The `remake` package has a nice function called `diagram()` that we haven't covered yet. It produces a dependency diagram for the target(s) you specify (remember that `all` is the default target). For this _modified_ remakefile, calling that function with the default arguments produces:
 ```r

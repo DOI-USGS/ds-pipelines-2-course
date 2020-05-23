@@ -62,7 +62,7 @@ steps:
       - type: respond
         with: 14-cyclical-depends.md
         store:
-          debug_url: '{{ result.data.html_url }}'           
+          cyclical_url: '{{ result.data.html_url }}'           
   - title: What are cyclical dependencies and how to avoid them?
     description: Thinking in a directed network of dependencies is probably a new concept. It hurts the brain. How to avoid breaking the network with cyclical dependencies. 
     link: '{{ store.cyclical_url }}'
